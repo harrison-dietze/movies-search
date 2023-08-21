@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "types": ["node"],
+    "target": "es2021"
+  }
+}
