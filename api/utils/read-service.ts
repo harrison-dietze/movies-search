@@ -7,8 +7,9 @@ const csvToArray = (strFile: string): Movie[] => {
   const headers: string[] = csvUtils.mapHeaders(
     csvUtils.separateHeaders(strFile)
   );
+
   const rows = csvUtils.createRowEachLineBreak(strFile);
-  const arr: any[] = csvUtils.formatRows(rows, headers);
+  const arr: Object[] = csvUtils.formatRows(rows, headers);
 
   return arr.map((element): Movie => new Movie(element));
 };

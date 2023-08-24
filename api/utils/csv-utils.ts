@@ -1,15 +1,18 @@
 const delimiter: string = ";";
 
 export const createRowEachLineBreak = (str: string): string[] =>
-  str.slice(str.indexOf("\n") + 1).split("\n");
+  str
+    .slice(str.indexOf("\n"))
+    .split("\r")
+    .map((line: string) => line.slice(2, line.length));
 
 export const separateHeaders = (strFile: string): string[] =>
-  strFile.slice(0, strFile.indexOf("\n")).split(delimiter);
+  strFile.slice(0, strFile.indexOf("\r")).split(delimiter);
 
 export const mapHeaders = (headers: string[]): string[] =>
   headers.map((element: string) => {
     element = String(element);
-    return element.slice(1, -1);
+    return element;
   });
 
 export const formatRows = (rows: string[], headers: string[]): Object[] => {
@@ -17,14 +20,7 @@ export const formatRows = (rows: string[], headers: string[]): Object[] => {
     const values = row.split(delimiter);
 
     const el = headers.reduce(function (object: any, header, index) {
-      object[header] = values[index] ? values[index].slice(1, -1) : "";
-      if (object[header].includes("...")) object[header] = 0;
-
-      if (isNaN(object[header])) {
-        if (String(object[header]).endsWith('"')) {
-          object[header] = object[header].slice(0, object[header].length - 1);
-        }
-      }
+      object[header] = values[index] || "";
 
       return object;
     }, {});
