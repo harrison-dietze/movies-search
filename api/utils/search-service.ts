@@ -23,7 +23,7 @@ const binarySearch = (
       list[halfLength][param] as string
     );
 
-    if (element.includes(value)) {
+    if (element && element.includes(value)) {
       firstIndex = halfLength;
       filteredList.push(list[halfLength]);
 

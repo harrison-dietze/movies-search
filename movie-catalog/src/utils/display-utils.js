@@ -1,4 +1,5 @@
-const formatDate = (date) => new Date(date).toLocaleDateString("pt-BR");
+const formatDate = (date) =>
+  date ? new Date(date).toLocaleDateString("pt-BR") : "";
 
 const formatStringArray = (list) => {
   let string = list.join(", ");

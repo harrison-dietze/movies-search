@@ -3,6 +3,7 @@ import { Movie } from "./interfaces/movie.class";
 import { readService } from "./utils/read-service";
 import { sortService } from "./utils/sort-service";
 import { searchService } from "./utils/search-service";
+import { SortingDirectionEnum } from "./enums/sorting-direction.enum";
 
 const path = require("path");
 
@@ -13,11 +14,19 @@ const router = Router();
 router.get("/movies", async (req: Request, res: Response) => {
   const filterValue: string = req.query.filter as string;
   const param: keyof Movie = req.query.param as keyof Movie;
+  const sortColumn: keyof Movie = req.query.sortColumn as keyof Movie;
+  const direction: SortingDirectionEnum = req.query
+    .direction as SortingDirectionEnum;
+
   let arr: Movie[] = await readService.getCSVFileAsArray(moviesFilePath);
-  arr = searchService.binarySearch(
-    sortService.mergeSort(arr, param),
-    param,
-    filterValue
+  arr = sortService.mergeSort(
+    searchService.binarySearch(
+      sortService.mergeSort(arr, param, direction),
+      param,
+      filterValue
+    ),
+    sortColumn,
+    direction
   );
   return res.send(arr);
 });

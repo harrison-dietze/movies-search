@@ -7,7 +7,10 @@ export class Movie {
   constructor(object: Partial<Movie>) {
     this.title = object.title;
     this.genres = this.makeGenreListFromString(object.genres as any);
-    this.releaseDate = new Date(object["release_date"]);
+
+    this.releaseDate = isNaN(new Date(object["release_date"]).getTime())
+      ? null
+      : new Date(object["release_date"]);
     this.popularity = object.popularity;
   }
 
