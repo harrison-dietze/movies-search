@@ -1,5 +1,6 @@
 import React from "react";
 import { displayUtils } from "../../utils/display-utils";
+import "../../index.css";
 
 const MovieTable = ({ movies }) => {
   return (

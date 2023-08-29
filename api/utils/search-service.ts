@@ -23,7 +23,7 @@ const binarySearch = (
       list[halfLength][param] as string
     );
 
-    if (element && element.includes(value)) {
+    if (element && element.startsWith(value)) {
       firstIndex = halfLength;
       filteredList.push(list[halfLength]);
 
@@ -34,7 +34,7 @@ const binarySearch = (
         if (
           stringUtils
             .normalizeLower(list[currentIndex][param] as string)
-            .includes(value)
+            .startsWith(value)
         )
           filteredList.push(list[currentIndex]);
         else foundAllNexts = true;
@@ -50,7 +50,7 @@ const binarySearch = (
         if (
           stringUtils
             .normalizeLower(list[currentIndex][param] as string)
-            .includes(value)
+            .startsWith(value)
         )
           filteredList.push(list[currentIndex]);
         else foundAllPrevious = true;
