@@ -52,10 +52,21 @@ function combine(
           indexHigh++;
         } else {
           if (
-            (lowItem[param] instanceof Date &&
-              (lowItem[param] as Date).getTime() <=
-                (highItem[param] as Date).getTime()) ||
-            (param != "releaseDate" && lowItem[param] <= highItem[param])
+            lowItem[param] instanceof Date &&
+            (lowItem[param] as Date).getTime() <=
+              (highItem[param] as Date).getTime()
+          ) {
+            combined.push(lowItem);
+            indexLow++;
+          } else if (
+            !isNaN(lowItem[param] as number) &&
+            Number(lowItem[param]) <= Number(highItem[param])
+          ) {
+            combined.push(lowItem);
+            indexLow++;
+          } else if (
+            isNaN(lowItem[param] as number) &&
+            lowItem[param] <= highItem[param]
           ) {
             combined.push(lowItem);
             indexLow++;
