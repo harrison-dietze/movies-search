@@ -15,6 +15,9 @@ const SearchField = ({ onSearch }) => {
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search movies..."
       />
+
+      {/* <select></select> */}
+
       <button onClick={handleSearch}>Search</button>
     </div>
   );

@@ -4,7 +4,7 @@ const fetchMovies = async (
   searchQuery,
   param = "title",
   sortColumn = "title",
-  direction = "D"
+  direction = "A"
 ) => {
   const response = await fetch(
     `${BASE_URL}?filter=${searchQuery}&param=${param}&sortColumn=${sortColumn}&direction=${direction}`
