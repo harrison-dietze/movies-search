@@ -16,11 +16,21 @@ function App() {
     }
   };
 
+    const handleSort = async (searchColumn, direction = 'D') => {
+        try {
+            console.log(searchColumn)
+            const data = await api.fetchMovies('', '', searchColumn, direction);
+            setMovies(data);
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
+    };
+
   return (
     <div className="App">
       <h1>Movie Search App</h1>
       <SearchField onSearch={handleSearch} />
-      <MovieTable movies={movies} />
+      <MovieTable onSort={handleSort} movies={movies} />
     </div>
   );
 }
