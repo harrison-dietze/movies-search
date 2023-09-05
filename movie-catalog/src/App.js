@@ -4,6 +4,7 @@ import SearchField from "./components/search/search";
 import MovieTable from "./components/table/table";
 import api from "./api/api";
 
+
 function App() {
   const [movies, setMovies] = useState([]);
 
@@ -28,8 +29,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Movie Search App</h1>
-      <SearchField onSearch={handleSearch} />
+      <h1 className="site-title">
+        <span className="animation">Movie Search App</span>
+      </h1>
+        <SearchField onSearch={handleSearch} />
       <MovieTable onSort={handleSort} movies={movies} />
     </div>
   );

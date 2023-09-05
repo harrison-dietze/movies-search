@@ -42,10 +42,10 @@ return (
             <tbody>
             {movies.map((movie) => (
                 <tr key={movie.id}>
-                    <td>{movie.title}</td>
-                    <td>{displayUtils.formatStringArray(movie.genres)}</td>
-                    <td>{displayUtils.formatDate(movie.releaseDate)}</td>
-                    <td>{movie.popularity}</td>
+                    <td className="result">{movie.title}</td>
+                    <td className="result">{displayUtils.formatStringArray(movie.genres)}</td>
+                    <td className="result">{displayUtils.formatDate(movie.releaseDate)}</td>
+                    <td className="result">{movie.popularity}</td>
                 </tr>
             ))}
             </tbody>
