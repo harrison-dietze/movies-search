@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.site-title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.animation {
+  color: #282c34; /* Cor de texto em tons de cinza */
+  animation: move 2s ease-in-out infinite; /* Adiciona uma animação de movimento */
+}
+
+@keyframes move {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px); /* Movimento para a direita */
+  }
+}

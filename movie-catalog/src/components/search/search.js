@@ -16,6 +16,11 @@ const SearchField = ({ onSearch }) => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search movies..."
+        onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        }}
       />
 
       <label>Field Name</label>
