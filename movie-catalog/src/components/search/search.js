@@ -3,8 +3,10 @@ import React, { useState } from "react";
 const SearchField = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [searchParam, setSearchParam] = useState("title");
+
   const handleSearch = () => {
-    onSearch(searchQuery);
+    onSearch(searchQuery, searchParam);
   };
 
   return (
@@ -16,7 +18,16 @@ const SearchField = ({ onSearch }) => {
         placeholder="Search movies..."
       />
 
-      {/* <select></select> */}
+      <label>Field Name</label>
+      <select
+        onChange={(e) => {
+          setSearchParam(e.target.value);
+        }}
+      >
+        <option value={"title"}>Title</option>
+        <option value={"tagline"}>Tagline</option>
+        <option value={"overview"}>Overview</option>
+      </select>
 
       <button onClick={handleSearch}>Search</button>
     </div>

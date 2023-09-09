@@ -66,3 +66,13 @@
 .header-date {
     min-width: 150px;
 }
+
+.div-table {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+th {
+    position: sticky;
+    top: 0;
+}

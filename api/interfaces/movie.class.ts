@@ -3,10 +3,12 @@ export class Movie {
   public genres?: string[];
   public releaseDate?: Date;
   public popularity?: number;
+  public overview?: string;
 
   constructor(object: Partial<Movie>) {
     this.title = object.title;
     this.genres = this.makeGenreListFromString(object.genres as any);
+    this.overview = object.overview;
 
     this.releaseDate = isNaN(new Date(object["release_date"]).getTime())
       ? null

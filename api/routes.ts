@@ -28,7 +28,12 @@ router.get("/movies", async (req: Request, res: Response) => {
     sortColumn,
     direction
   );
-  if (direction == "D") arr.reverse();
+
+  if (direction == "D") {
+    arr.reverse();
+    arr.slice(1, arr.length);
+  }
+
   return res.send(arr);
 });
 

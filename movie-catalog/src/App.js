@@ -7,24 +7,23 @@ import api from "./api/api";
 function App() {
   const [movies, setMovies] = useState([]);
 
-  const handleSearch = async (searchQuery) => {
+  const handleSearch = async (searchQuery, param) => {
     try {
-      const data = await api.fetchMovies(searchQuery);
+      const data = await api.fetchMovies(searchQuery, param);
       setMovies(data);
     } catch (error) {
       console.error("Error fetching movies:", error);
     }
   };
 
-    const handleSort = async (searchColumn, direction = 'D') => {
-        try {
-            console.log(searchColumn)
-            const data = await api.fetchMovies('', '', searchColumn, direction);
-            setMovies(data);
-        } catch (error) {
-            console.error("Error fetching movies:", error);
-        }
-    };
+  const handleSort = async (searchColumn, direction = "D") => {
+    try {
+      const data = await api.fetchMovies("", "", searchColumn, direction);
+      setMovies(data);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
 
   return (
     <div className="App">
