@@ -1,48 +1,85 @@
-.header-title {
-    min-width: 30vw;
-    max-width: 30vw;
-    border-right: 2px solid #606060FF;
-    border-bottom: 2px solid #606060FF;
+.title {
+    min-width: 30.5vw;
+    max-width: 30.5vw;
+    text-align: left;
+    border-radius: 7px 7px 0 0;
+    border-right: 1px solid #606060FF;
+    padding-left: 5px;
+
 }
 
-.header-genres {
-    min-width: 30vw;
-    max-width: 30vw;
-    border-right: 2px solid #606060FF;
-    border-bottom: 2px solid #606060FF;
+.genres {
+    min-width: 25vw;
+    max-width: 25vw;
+    text-align: left;
+    border-right: 1px solid #606060FF;
+    padding-left: 5px;
 }
 
-.header-date {
+.date {
     min-width: 10vw;
     max-width: 10vw;
-    border-right: 2px solid #606060FF;
-    border-bottom: 2px solid #606060FF;
+    justify-content: center;
+    text-align: left;
+    border-right: 1px solid #606060FF;
+    padding-left: 5px;
 }
 
-.header-popularity {
+.popularity {
     min-width: 10vw;
     max-width: 10vw;
+    justify-content: center;
+    text-align: left;
+    border-right: 1px solid #606060FF;
+    padding-left: 5px;
+}
+
+.budget {
+    min-width: 10vw;
+    max-width: 10vw;
+    justify-content: center;
+    text-align: left;
+    border-right: 1px solid #606060FF;
+    padding-left: 5px;
+}
+
+.revenue {
+    min-width: 10vw;
+    max-width: 10vw;
+    justify-content: center;
+    text-align: left;
+    border-radius: 7px 7px 0 0;
+    padding-left: 5px;
+}
+
+.header {
     border-bottom: 2px solid #606060FF;
+    position: fixed;
+    border-radius: 6px 6px 0 0;
+    width: 97.8%;
 }
 
 .movie-table-container {
     margin: 20px;
-    overflow-x: auto;
     border-radius: 10px;
     border: 2px solid #606060FF;
-    max-height: 72vh;
+    height: 75vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .movie-table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
+    display: flex;
+    flex-direction: row;
 }
 
 .movie-table th {
     background-color: #f2f2f2;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: left;
     font-weight: bold;
 }
@@ -67,10 +104,6 @@ th{
     top: 0;
 }
 
-.header-date {
-    min-width: 150px;
-}
-
 .div-table {
     max-height: 80vh;
     overflow-y: auto;
@@ -79,4 +112,35 @@ th{
 th {
     position: sticky;
     top: 0;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: #FFF;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #CBCBCB;
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: -2px;
+    border: 1px solid #B7B7B7;
+    border-radius: 5px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #909090;
+}
+
+tbody{
+    padding-top: 42px;
+    width: 95vw;
+}
+
+.tr{
+    border-bottom: 1px solid #606060FF;
 }

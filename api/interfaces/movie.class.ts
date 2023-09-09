@@ -4,6 +4,8 @@ export class Movie {
   public releaseDate?: Date;
   public popularity?: number;
   public overview?: string;
+  public budget?: number;
+  public revenue?: number;
 
   constructor(object: Partial<Movie>) {
     this.title = object.title;
@@ -14,6 +16,8 @@ export class Movie {
       ? null
       : new Date(object["release_date"]);
     this.popularity = object.popularity;
+    this.budget = object.budget;
+    this.revenue = object.revenue;
   }
 
   private makeGenreListFromString(genresString: string): string[] {

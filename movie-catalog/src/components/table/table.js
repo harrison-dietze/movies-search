@@ -15,9 +15,9 @@ const MovieTable = ({ movies, onSort }) => {
   return (
     <div className="movie-table-container table-body">
       <table className="movie-table">
-        <thead>
+        <thead className="header">
           <tr>
-            <th className="header-title">
+            <th className="title">
               <span>Names</span>
               <TiArrowUnsorted
                 className="sort-icon"
@@ -25,8 +25,8 @@ const MovieTable = ({ movies, onSort }) => {
                 onClick={() => handleSort("title")}
               />
             </th>
-            <th className="header-genres">Genres</th>
-            <th className="header-date">
+            <th className="genres">Genres</th>
+            <th className="date">
               <span>Release Date</span>
               <TiArrowUnsorted
                 className="sort-icon"
@@ -34,16 +34,20 @@ const MovieTable = ({ movies, onSort }) => {
                 onClick={() => handleSort("releaseDate")}
               />
             </th>
-            <th className="header-popularity">Popularity</th>
+            <th className="popularity">Popularity</th>
+            <th className="budget">Budget</th>
+            <th className="revenue">Revenue</th>
           </tr>
         </thead>
         <tbody>
           {movies.map((movie) => (
-            <tr key={movie.id}>
-              <td>{movie.title}</td>
-              <td>{displayUtils.formatStringArray(movie.genres)}</td>
-              <td>{displayUtils.formatDate(movie.releaseDate)}</td>
-              <td>{movie.popularity}</td>
+            <tr key={movie.id} className="tr">
+              <td className="title pl">{movie.title}</td>
+              <td className="genres">{displayUtils.formatStringArray(movie.genres)}</td>
+              <td className="date">{displayUtils.formatDate(movie.releaseDate)}</td>
+              <td className="popularity">{movie.popularity}</td>
+              <td className="budget">{movie.budget}</td>
+              <td className="revenue">{movie.revenue}</td>
             </tr>
           ))}
         </tbody>
