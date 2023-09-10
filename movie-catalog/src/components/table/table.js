@@ -35,8 +35,22 @@ const MovieTable = ({ movies, onSort }) => {
               />
             </th>
             <th className="popularity">Popularity</th>
-            <th className="budget">Budget</th>
-            <th className="revenue">Revenue</th>
+            <th className="budget">Budget
+              <span>Budget</span>
+              <TiArrowUnsorted
+                  className="sort-icon"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSort("budget")}
+              />
+            </th>
+            <th className="revenue">
+              <span>Revenue</span>
+              <TiArrowUnsorted
+                  className="sort-icon"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSort("revenue")}
+              />
+            </th>
           </tr>
         </thead>
         <tbody>

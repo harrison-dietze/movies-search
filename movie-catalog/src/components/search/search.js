@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./search.css";
 
 const SearchField = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -10,32 +11,39 @@ const SearchField = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search movies..."
-        onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-                handleSearch();
-            }
-        }}
-      />
+      <div className="main_div">
+        <div className="group">
+          <input
+            required="required"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            /*placeholder="Search movies..."*/
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            }}
+          />
+          <label>Field Name</label>
+        </div>
 
-      <label>Field Name</label>
-      <select
-        onChange={(e) => {
-          setSearchParam(e.target.value);
-        }}
-      >
-        <option value={"title"}>Title</option>
-        <option value={"tagline"}>Tagline</option>
-        <option value={"overview"}>Overview</option>
-      </select>
+        <div className="padding-left">
+         <select
+            onChange={(e) => {
+              setSearchParam(e.target.value);
+            }}
+          >
+            <option value={"title"}>Title</option>
+            <option value={"tagline"}>Tagline</option>
+            <option value={"overview"}>Overview</option>
+          </select>
+        </div>
+        <div className="padding-left">
+            <button onClick={handleSearch}>Search</button>
+        </div>
 
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      </div>
   );
 };
 
