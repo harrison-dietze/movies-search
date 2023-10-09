@@ -34,21 +34,28 @@ const MovieTable = ({ movies, onSort }) => {
                 onClick={() => handleSort("releaseDate")}
               />
             </th>
-            <th className="popularity">Popularity</th>
-            <th className="budget">Budget
+            <th className="popularity">
+              <span>Popularity</span>
+              <TiArrowUnsorted
+                className="sort-icon"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleSort("popularity")}
+              />
+            </th>
+            <th className="budget">
               <span>Budget</span>
               <TiArrowUnsorted
-                  className="sort-icon"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleSort("budget")}
+                className="sort-icon"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleSort("budget")}
               />
             </th>
             <th className="revenue">
               <span>Revenue</span>
               <TiArrowUnsorted
-                  className="sort-icon"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleSort("revenue")}
+                className="sort-icon"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleSort("revenue")}
               />
             </th>
           </tr>
@@ -57,8 +64,12 @@ const MovieTable = ({ movies, onSort }) => {
           {movies.map((movie) => (
             <tr key={movie.id} className="tr">
               <td className="title pl">{movie.title}</td>
-              <td className="genres">{displayUtils.formatStringArray(movie.genres)}</td>
-              <td className="date">{displayUtils.formatDate(movie.releaseDate)}</td>
+              <td className="genres">
+                {displayUtils.formatStringArray(movie.genres)}
+              </td>
+              <td className="date">
+                {displayUtils.formatDate(movie.releaseDate)}
+              </td>
               <td className="popularity">{movie.popularity}</td>
               <td className="budget">{movie.budget}</td>
               <td className="revenue">{movie.revenue}</td>

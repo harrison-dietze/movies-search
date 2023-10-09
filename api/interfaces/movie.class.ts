@@ -22,7 +22,7 @@ export class Movie {
 
   private makeGenreListFromString(genresString: string): string[] {
     const removableStrings: string[] = [", ", "[", "]"];
-    return genresString
+    return (genresString || "")
       .split(`'`)
       .filter((item) => !removableStrings.includes(item));
   }

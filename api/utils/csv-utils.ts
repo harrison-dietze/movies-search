@@ -1,4 +1,5 @@
 const delimiter: string = ";";
+const numberOfColumns: number = 15;
 
 export const createRowEachLineBreak = (str: string): string[] =>
   str
@@ -17,7 +18,7 @@ export const mapHeaders = (headers: string[]): string[] =>
 
 export const formatRows = (rows: string[], headers: string[]): Object[] => {
   return rows.map(function (row) {
-    const values = row.split(delimiter);
+    const values = escapeDelimiter(row.split(delimiter));
 
     const el = headers.reduce(function (object: any, header, index) {
       object[header] = values[index] || "";
@@ -27,6 +28,28 @@ export const formatRows = (rows: string[], headers: string[]): Object[] => {
 
     return el;
   });
+};
+
+export const escapeDelimiter = (values: any[]): any[] => {
+  if (values.length <= numberOfColumns) return values;
+
+  for (let index = 0; index < values.length; index++) {
+    const element: any = values[index];
+
+    if (typeof element == "string" && element.startsWith('"')) {
+      while (index < values.length && !values[index].endsWith('"')) {
+        values[index] = values[index] + values[index + 1];
+
+        values.splice(index + 1, 1);
+        console.log(values[index]);
+        if (!values[index].endsWith('"')) break;
+      }
+    }
+  }
+
+  // console.log(values);
+
+  return values;
 };
 
 export const csvUtils = {

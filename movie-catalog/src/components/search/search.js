@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./search.css";
 
-const SearchField = ({ onSearch }) => {
+const SearchField = ({ onSearch, onChange }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const [searchParam, setSearchParam] = useState("title");
@@ -11,24 +11,27 @@ const SearchField = ({ onSearch }) => {
   };
 
   return (
-      <div className="main_div">
-        <div className="group">
-          <input
-            required="required"
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            /*placeholder="Search movies..."*/
-            onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    handleSearch();
-                }
-            }}
-          />
-          <label>Field Name</label>
-        </div>
+    <div className="main_div">
+      <div className="group">
+        <input
+          required="required"
+          type="text"
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            onChange(e.target.value);
+          }}
+          placeholder="Search movies..."
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
+        {/* <label>Field Name</label> */}
+      </div>
 
-        <div className="padding-left">
+      {/* <div className="padding-left">
          <select
             onChange={(e) => {
               setSearchParam(e.target.value);
@@ -38,12 +41,11 @@ const SearchField = ({ onSearch }) => {
             <option value={"tagline"}>Tagline</option>
             <option value={"overview"}>Overview</option>
           </select>
-        </div>
-        <div className="padding-left">
-            <button onClick={handleSearch}>Search</button>
-        </div>
-
+        </div> */}
+      <div className="padding-left">
+        <button onClick={handleSearch}>Search</button>
       </div>
+    </div>
   );
 };
 
